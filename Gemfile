@@ -18,6 +18,7 @@ gem 'bootstrap', '~> 4.0'
 gem 'popper_js', '~> 1.12.9'
 gem 'jquery-rails'
 gem 'autoprefixer-rails', '~> 7.2.5'
+gem 'devise', '~> 4.2'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
