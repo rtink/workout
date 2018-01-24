@@ -56,13 +56,14 @@ guard :rspec, cmd: "bin/rspec" do
   # Rails config changes
   watch(%r{^app/models/(.+)\.rb$}) { |m| "spec/features/#{m[1]}s" }
   watch(%r{^app/controllers/(.+)_(controller)\.rb$}) { |m| "spec/features/#{m[1]}" }
+  watch(rails.view_dirs) { |m| "spec/features/#{m[1]}" }
   watch(rails.routes)          { "#{rspec.spec_dir}" }
-  #watch(rails.spec_helper)     { rspec.spec_dir }
-  #watch(rails.routes)          { "#{rspec.spec_dir}/routing" }
-  #watch(rails.app_controller)  { "#{rspec.spec_dir}/controllers" }
+  #watch(%r{^app/views/layouts/application.html.erb$}) { "spec/features/" }
+  watch(%r{^app/views/shared/_navigation.html.erb$}) { "spec/features/" }
+ 
 
   # Capybara features specs
-  watch(rails.view_dirs)     { |m| rspec.spec.call("features/users#{m[1]}") }
+  watch(rails.view_dirs)     { |m| rspec.spec.call("features/#{m[1]}") }
   watch(rails.layouts)       { |m| rspec.spec.call("features/#{m[1]}") }
 
   # Turnip features and steps
