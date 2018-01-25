@@ -3,3 +3,32 @@
 .jumbotron {
     margin-top: 10px;
 }
+
+// change navbar brand color and size and hover
+#logo {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: black;
+}
+
+#logo:hover {
+    color: #ff0000;
+    text-decoration: none;
+}
+
+// change navbar background color
+.navbar-custom {
+    background-color: #ffd600;
+
+}
+
+// change link color
+.navbar-custom .navbar-nav .nav-item .nav-link {
+    color: black;
+}
+
+// change link hover color
+.navbar-custom .navbar-nav .nav-item:hover .nav-link {
+    color: #ff0000;
+    text-decoration: none;
+}
