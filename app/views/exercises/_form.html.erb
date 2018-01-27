@@ -1,0 +1,58 @@
+<div class='container'>
+  <div class='row justify-content-start'>
+     <div class='w-100'>
+      <%= form_for([current_user, @exercise], :html => {class: 'form-group', role: 'form' }) do |f| %>
+        <% if @exercise.errors.any? %>
+          <div class="card card-danger col-md-offset-1">
+            <div class="cardl-heading">
+              <h2 class="card-title">
+                <%= pluralize(@exercise.errors.count, "error") %>
+                prohibited this exercise from being saved:
+              </h2>
+              
+              <div class="panel-body">
+                <ul>
+                  <% @exercise.errors.full_messages.each do |msg| %>
+                  <li>
+                    <%= msg %>
+                  </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        
+      <div class='form-group row'>
+        <div class='form-control-label col-2'>
+          <%= f.label :duration_in_min, "Duration (min)" %>
+        </div>
+        <div class='col-10'>
+          <%= f.number_field :duration_in_min, class: 'form-control' %>
+        </div>
+      </div>
+      <div class='form-group row'>
+        <div class='form-control-label col-2'>
+          <%= f.label :workout, "Workout Details" %>
+        </div>
+        <div class='col-10'>
+          <%= f.text_area :workout, rows: 10, class: 'form-control' %>
+        </div>
+      </div>
+       <div class='form-group row'>
+        <div class='form-control-label col-2'>
+          <%= f.label :workout_date, "Activity Date" %>
+        </div>
+        <div class='col-10'>
+          <%= f.text_area :workout_date, class: 'form-control' %>
+        </div>
+      </div>
+      <div class='form-group'>
+        <div class='col-2'>
+            <%= f.submit class: 'btn btn-primary btn-sm' %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
