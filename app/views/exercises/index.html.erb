@@ -17,10 +17,13 @@
                 <td><%= exercise.duration_in_min %></td>
                 <td><%= truncate(exercise.workout, length: 100) %></td>
                 <td><%= exercise.workout_date %></td>
-                <td><%= link_to "Show", [current_user, exercise] %></td>
-                <td><%= link_to "Edit", [:edit, current_user, exercise] %></td>
+                <td><%= link_to "Show", [current_user, exercise],
+                                    class: "badge badge-info" %></td>
+                <td><%= link_to "Edit", [:edit, current_user, exercise],
+                                         class: "badge badge-warning"%></td>
                 <td><%= link_to "Destroy", [current_user, exercise], method: :delete,
-                                         data: { confirm: "Are you sure?" } %></td>
+                                         data: { confirm: "Are you sure?" },
+                                         class: "badge badge-danger" %></td>
             </tr>
             <% end %>
         </tbody>
@@ -28,11 +31,11 @@
     <br>
     <% else %>
     <div class="alert alert-danger message-font text-center" role="alert">
-        No Workouts yet
+        No Workouts Yet
     </div>
     <br>
     <% end %>
     <%= link_to "New Workout", new_user_exercise_path(current_user), 
-                               class: "btn btn-primary link" %>
+                               class: "badge badge-info link" %>
     <%= content_tag :div, "", id: "chart", data: { workouts: @exercises } %>
 </div>
