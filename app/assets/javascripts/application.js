@@ -12,7 +12,8 @@
 //
 //= require rails-ujs
 //= require jquery
+ //= require jquery-ui/widgets/datepicker
 //= require popper
 //= require bootstrap-sprockets
-//= require turbolinks
+//require turbolinks
 //= require_tree .

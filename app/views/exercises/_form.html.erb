@@ -3,7 +3,7 @@
      <div class='w-100'>
       <%= form_for([current_user, @exercise], :html => {class: 'form-group', role: 'form' }) do |f| %>
         <% if @exercise.errors.any? %>
-          <div class="card card-danger col-md-offset-1">
+          <div class="card card-danger col-md-offset-1" id="error_explanation">
             <div class="cardl-heading">
               <h2 class="card-title">
                 <%= pluralize(@exercise.errors.count, "error") %>
