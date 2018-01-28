@@ -1,7 +1,7 @@
 class DashboardsController < ApplicationController
     
   def index
-    @athletes = User.all
+    @athletes = User.paginate :page => params[:page], :per_page => 10
   end
     
 end

@@ -21,6 +21,7 @@ gem 'autoprefixer-rails', '~> 7.2.5'
 gem 'devise', '~> 4.2'
 gem 'jquery-ui-rails', '~> 6.0.1'
 gem 'd3-rails', '~> 4.10.2'
+gem 'will_paginate-bootstrap4'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes

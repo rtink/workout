@@ -7,9 +7,9 @@
 <div class="row">
   <div class="col-10">
     <h2>List of Members</h2>
+    <div class="pagination justify-content-center apple_pagination">
+    <%= will_paginate @athletes %>
   </div>
-</div>
-
 <div class="row">
   <% @athletes.each do |athlete| %>
     <div class="col-10 card member">
@@ -17,3 +17,6 @@
     </div>  
   <% end %>
 </div>
+<div class="pagination justify-content-center apple_pagination">
+    <%= will_paginate @athletes %>
+  </div>
