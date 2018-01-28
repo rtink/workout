@@ -2,7 +2,10 @@ require 'rails_helper'
 
 RSpec.feature "Creating Exercise" do
   before do
-    @patty = User.create!(email: "patty@example.com", password: "password")
+    @patty = User.create!(first_name: "Patty", 
+                        last_name: "Arquette",
+                        email: "patty@example.com", 
+                        password: "password")
     login_as(@patty)
     
     visit '/'
@@ -37,5 +40,4 @@ RSpec.feature "Creating Exercise" do
     expect(page).to have_content("Workout details can't be blank")
     expect(page).to have_content("Activity date can't be blank")
   end
-    
 end

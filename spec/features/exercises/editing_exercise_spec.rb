@@ -2,12 +2,15 @@ require "rails_helper"
 
 RSpec.feature "Editing Exercise" do
   before do
-    @owner = User.create!(email: "owner@example.com", password: "password")
+     @patty = User.create!(first_name: "Patty", 
+                        last_name: "Arquette",
+                        email: "patty@example.com", 
+                        password: "password")
     
-    @owner_exercise = @owner.exercises.create!(duration_in_min: 48,
+    @patty_exercise = @patty.exercises.create!(duration_in_min: 48,
                                                 workout: "My workout activity",
                                                 workout_date: Date.today)
-    login_as(@owner)
+    login_as(@patty)
   end
   
   scenario "with valid data succeeds" do
@@ -15,7 +18,7 @@ RSpec.feature "Editing Exercise" do
     
     click_link "My Lounge"
     
-    path = "/users/#{@owner.id}/exercises/#{@owner_exercise.id}/edit"
+    path = "/users/#{@patty.id}/exercises/#{@patty_exercise.id}/edit"
     link = "a[href=\'#{path}\']"
     find(link).click
     
