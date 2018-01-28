@@ -24,16 +24,16 @@ var drawChart = function () {
   
   var parseTime = d3.timeParse("%Y-%m-%d");
   
-  var workoutFN = function(d) { return d.duration_in_min };
-  var dateFN = function(d) { return parseTime(d.workout_date) };
+  var workoutFn = function(d) { return d.duration_in_min };
+  var dateFn = function(d) { return parseTime(d.workout_date) };
   
   var x = d3.scaleTime()
     .range([0, width])
-    .domain(d3.extent(data, dateFN));
+    .domain(d3.extent(data, dateFn));
   
   var y = d3.scaleLinear()
     .range([height, 0])
-    .domain([0, d3.max(data, workoutFN)]);
+    .domain([0, d3.max(data, workoutFn)]);
     
   var workout_line = d3.line()
     .x(function(d) { return x(d.workout_date); })
