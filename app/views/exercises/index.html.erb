@@ -42,3 +42,21 @@
                                class: "badge badge-info link" %>
     <%= content_tag :div, "", id: "chart", data: { workouts: @exercises } %>
 </div>
+
+<div class="col-4 col-12">
+    <h3 class="text-center">My Friends</h3>
+    
+    <% @friends.each do |friend| %>
+        <div class="col-offset-3 col-6 friend_name">
+            <%= link_to friend.full_name, friendship_path(current_user.current_friendship(friend)) %>
+        </div>
+        
+        <div class="col-3">
+            <div class="btn-unfollow">
+                <%= link_to "Unfollow", friendship_path(current_user.current_friendship(friend)),
+                    method: :delete, data: { confirm: "Are you sure?" },
+                    class: "badge badge-info link" %>
+            </div>
+        </div>
+    <% end %>
+</div>

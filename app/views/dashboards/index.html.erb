@@ -13,11 +13,13 @@
   </div>
   <ul class="list-group list-group-flush">
     <% @athletes.each do |athlete| %>
-      <li class="list-group-item"><%= athlete.full_name %></li>
-      <% if current_user %>
-        <%= link_to "Follow", friendships_path(friend_id: athlete.id), method: :post, 
-           class: "badge badge-success float-right" unless current_user.follows_or_same?(athlete) %>
-      <% end %>
+      <li class="list-group-item">
+        <%= athlete.full_name %>
+        <% if current_user %>
+          <%= link_to "Follow", friendships_path(friend_id: athlete.id), method: :post, 
+             class: "badge badge-info float-right" unless current_user.follows_or_same?(athlete) %>
+        <% end %>
+      </li>
     <% end %>
   </ul>
   <div class="pagination justify-content-center apple_pagination">
