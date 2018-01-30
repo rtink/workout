@@ -1,12 +1,6 @@
-<div class="jumbotron">
-  <h1>Workout Lounge!</h1>
-    
-  <p>Show off your workout to your friends and family</p>
-</div>
-
 <div class="card" style="width: 28rem;">
   <div class="card-header">
-    <h3>List of Members</h3>
+    <h3>Results of Search</h3>
   </div>
   <div class="pagination justify-content-center apple_pagination">
     <%= will_paginate @athletes %>
@@ -16,9 +10,6 @@
       <li class="list-group-item"><%= athlete.full_name %></li>
     <% end %>
   </ul>
-  <div class="pagination justify-content-center apple_pagination">
-    <%= will_paginate @athletes %>
-  </div>
 </div>
 <div class="pagination justify-content-center apple_pagination">
     <%= will_paginate @athletes %>

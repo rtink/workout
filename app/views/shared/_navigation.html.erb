@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+<nav class="navbar navbar-expand-lg navbar-light navbar-custom justify-content-start">
   <%= link_to 'Athletes Den', root_path, class: 'navar-brand pl-5 d-flex mr-auto', id: 'logo' %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -11,6 +11,16 @@
          <%= link_to "Home", root_path, class: "nav-link" %>
       </li>
     </ul>
+    
+    <%= form_tag(search_dashboards_path,
+                 class: "form-inline my-2 my-lg-0",
+                 role: "search") do %>
+        <div class="form-group">
+          <%= text_field_tag :search_name, nil, placeholder: "Search for friends",
+              class: "form-control mr-sm-2" %>
+          <%= submit_tag "Search", class: "btn btn-outline-default my-2 my-sm-0" %>
+        </div>
+    <% end %>
   
     <ul class="navbar-nav ml-auto w-75 justify-content-end">
       <% unless user_signed_in? %>
@@ -23,6 +33,9 @@
       <% else %>
          <li class="nav-item">
            <%= link_to "My Lounge", user_exercises_path(current_user), class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Edit Profile", edit_user_registration_path, class: "nav-link" %>
         </li>
         <li class="nav-item ">
            <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %>
