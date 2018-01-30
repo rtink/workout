@@ -4,19 +4,36 @@
   <p>Show off your workout to your friends and family</p>
 </div>
 
-<div class="row">
-  <div class="col-10">
-    <h2>List of Members</h2>
-    <div class="pagination justify-content-center apple_pagination">
+<!--<div class="row">-->
+<!--  <div class="col-10">-->
+<!--    <h2>List of Members</h2>-->
+<!--    <div class="pagination justify-content-center apple_pagination">-->
+<!--    <#%= will_paginate @athletes %>-->
+<!--  </div>-->
+<!--<div class="row">-->
+<!--  <#% @athletes.each do |athlete| %>-->
+<!--    <div class="col-10 card">-->
+<!--      <#%= athlete.full_name %>-->
+<!--    </div>  -->
+<!--  <#% end %>-->
+<!--</div>-->
+<!--<div class="pagination justify-content-center apple_pagination">-->
+<!--    <#%= will_paginate @athletes %>-->
+<!--  </div>-->
+  
+  <div class="card" style="width: 28rem;">
+  <div class="card-header">
+    <h3>List of Members</h3>
+  </div>
+  <div class="pagination justify-content-center apple_pagination">
     <%= will_paginate @athletes %>
   </div>
-<div class="row">
-  <% @athletes.each do |athlete| %>
-    <div class="col-10 card member">
-      <%= athlete.full_name %>
-    </div>  
-  <% end %>
+  <ul class="list-group list-group-flush">
+    <% @athletes.each do |athlete| %>
+      <li class="list-group-item"><%= athlete.full_name %></li>
+    <% end %>
+  </ul>
+  <div class="pagination justify-content-center apple_pagination">
+    <%= will_paginate @athletes %>
+  </div>
 </div>
-<div class="pagination justify-content-center apple_pagination">
-    <%= will_paginate @athletes %>
-  </div>

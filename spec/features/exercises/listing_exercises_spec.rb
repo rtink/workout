@@ -49,5 +49,4 @@ RSpec.feature "Listing Exercises" do
     expect(page).to have_content("No Workouts Yet")
     
   end
-  
 end

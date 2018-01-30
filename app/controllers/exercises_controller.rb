@@ -2,7 +2,7 @@ class ExercisesController < ApplicationController
   before_action :set_exercise, only: [:show, :edit, :update, :destroy]
   
   def index
-    @exercises = current_user.exercises.all
+    @exercises = current_user.exercises
   end
   
   def show
@@ -46,7 +46,7 @@ class ExercisesController < ApplicationController
   private
    
   def set_exercise
-     @exercise = current_user.exercises.find(params[:id])
+    @exercise = current_user.exercises.find(params[:id])
   end
   
   def exercise_params 
